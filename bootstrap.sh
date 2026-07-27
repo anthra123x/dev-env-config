@@ -62,13 +62,21 @@ link_file() {
     ok "Linked $src -> $dest"
 }
 
-# ── Link home configs ──
+# ── Link home configs (skip wallpapers — copied separately) ──
 info "Creating symlinks..."
-find home -type f | while IFS= read -r f; do
+find home -type f -not -path "home/Imágenes/*" | while IFS= read -r f; do
     src="$REPO_DIR/$f"
     dest="$HOME/$(echo "$f" | sed 's|^home/||')"
     link_file "$src" "$dest"
 done
+
+# ── Copy wallpapers ──
+if [ -d "$REPO_DIR/home/Imágenes" ]; then
+    info "Copying wallpapers..."
+    mkdir -p "$HOME/Imágenes/wallpapers"
+    cp -n "$REPO_DIR/home/Imágenes/wallpapers"/* "$HOME/Imágenes/wallpapers/" 2>/dev/null || true
+    ok "$(ls -1 "$REPO_DIR/home/Imágenes/wallpapers" 2>/dev/null | wc -l) wallpapers copied"
+fi
 
 # ── Apply GNOME settings ──
 if [ -f "$REPO_DIR/desktop/gnome-settings.dconf" ]; then
@@ -109,13 +117,18 @@ echo ""
 echo "  What was done:"
 echo "  ✓ System packages installed"
 echo "  ✓ Flatpaks installed"
+echo "  ✓ NVM + Node.js LTS + opencode-ai"
+echo "  ✓ Bun"
+echo "  ✓ pipx: waypaper"
 echo "  ✓ VS Code extensions installed"
 echo "  ✓ Config files linked to ~/"
+echo "  ✓ Wallpapers copied"
 echo "  ✓ GNOME settings restored"
 echo "  ✓ Systemd user services enabled"
 echo ""
 echo "  Next steps:"
 echo "  1. Restart your shell or run: source ~/.bashrc"
-echo "  2. Authenticate GitHub: gh auth login"
-echo "  3. Log out and back in for GNOME settings to take effect"
+echo "  2. Install nvm defaults: nvm alias default lts"
+echo "  3. Authenticate GitHub: gh auth login"
+echo "  4. Log out and back in for GNOME settings to take effect"
 echo ""

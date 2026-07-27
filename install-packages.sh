@@ -29,6 +29,27 @@ flatpak install -y flathub \
     com.mattjakeman.ExtensionManager \
     md.obsidian.Obsidian
 
+echo "=== Installing nvm ==="
+if [ ! -d "$HOME/.nvm" ]; then
+    curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+fi
+
+echo "=== Installing Node.js LTS ==="
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install --lts || true
+
+echo "=== Installing global npm packages ==="
+npm install -g opencode-ai@latest
+
+echo "=== Installing bun ==="
+if [ ! -d "$HOME/.bun" ]; then
+    curl -fsSL https://bun.sh/install | bash
+fi
+
+echo "=== Installing pipx packages ==="
+pipx install waypaper
+
 echo "=== Installing VS Code extensions ==="
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if command -v code &>/dev/null; then

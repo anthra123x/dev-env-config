@@ -45,8 +45,8 @@ translate=true
 [desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/omicron/.config/variety/wallpaper/wallpaper-auto-rotated-a8b714d74bc31bfea52b01df5b81cd4d.jpg'
-picture-uri-dark='file:///home/omicron/.config/variety/wallpaper/wallpaper-auto-rotated-a8b714d74bc31bfea52b01df5b81cd4d.jpg'
+picture-uri=''
+picture-uri-dark=''
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -118,7 +118,7 @@ daily-limit-seconds=uint32 28800
 [desktop/screensaver]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/omicron/.local/share/backgrounds/2026-06-27-14-00-24-wallhaven-vgv658.jpg'
+picture-uri=''
 primary-color='#000000000000'
 secondary-color='#000000000000'
 

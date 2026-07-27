@@ -12,6 +12,9 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthra123x/dev-env-confi
 
 - **Paquetes del sistema:** git, gh, gamemode, mangohud, variety, pipx, git-lfs
 - **Flatpaks:** Extension Manager, Obsidian
+- **NVM + Node.js LTS + opencode-ai**
+- **Bun**
+- **pipx:** waypaper
 - **Extensiones de VS Code** (47 extensions)
 
 ## Qué configura
@@ -27,6 +30,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthra123x/dev-env-confi
 - GameMode + MangoHud
 - Systemd servicios de usuario (bluetooth auto-off, wallpapers)
 - Navegador por defecto (Brave)
+- **32 wallpapers** (copiados a ~/Imágenes/wallpapers/)
 
 ## Actualizar
 
@@ -38,7 +42,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthra123x/dev-env-confi
 
 ```
 dev-env-config/
-├── bootstrap.sh              # Entry point
+├── bootstrap.sh              # Entry point — un solo comando
 ├── install-packages.sh       # Instalación de paquetes
 ├── home/                     # Mirror de ~/ (se enlaza simbólicamente)
 │   ├── .bashrc
@@ -47,6 +51,7 @@ dev-env-config/
 │   ├── .npmrc
 │   ├── .aider.conf.yml
 │   ├── .claude.json
+│   ├── Imágenes/wallpapers/  # 32 wallpapers (se copian, no enlazan)
 │   └── .config/
 │       ├── Code/User/settings.json
 │       ├── gtk-3.0/bookmarks
