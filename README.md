@@ -12,9 +12,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthra123x/dev-env-confi
 
 - **Paquetes del sistema:** git, gh, gamemode, mangohud, variety, pipx, git-lfs
 - **Flatpaks:** Extension Manager, Obsidian
-- **NVM + Node.js LTS + opencode-ai**
-- **Bun**
-- **pipx:** waypaper
 - **Extensiones de VS Code** (47 extensions)
 
 ## Qué configura
