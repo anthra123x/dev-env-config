@@ -1,0 +1,15 @@
+fps_only = false
+fps = true
+cpu_stats = true
+cpu_temp = true
+gpu_stats = true
+gpu_temp = true
+ram = true
+vram = true
+toggle_hud = Shift+F12
+toggle_logging = Ctrl+Alt+L
+no_display = false
+hud_scale = 0.8
+font_size = 15
+position = top-right
+background_alpha = 0.8

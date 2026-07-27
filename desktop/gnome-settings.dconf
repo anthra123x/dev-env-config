@@ -1,0 +1,277 @@
+[Ptyxis]
+default-profile-uuid='9d740e2d535a8cb4cb7b392f6a3d5596'
+profile-uuids=['9d740e2d535a8cb4cb7b392f6a3d5596']
+window-size=(uint32 212, uint32 49)
+
+[calculator]
+base=10
+button-mode='basic'
+source-units=['degree']
+target-units=['radian']
+unit-category='angle'
+window-maximized=false
+window-size=(360, 616)
+
+[control-center]
+last-panel='power'
+window-state=(980, 640, true)
+
+[desktop/a11y/magnifier]
+cross-hairs-length=58
+
+[desktop/app-folders]
+folder-children=['System', 'Utilities', 'YaST', 'Pardus']
+
+[desktop/app-folders/folders/Pardus]
+categories=['X-Pardus-Apps']
+name='X-Pardus-Apps.directory'
+translate=true
+
+[desktop/app-folders/folders/System]
+apps=['org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Logs.desktop', 'org.freedesktop.MalcontentControl.desktop', 'org.gnome.SystemMonitor.desktop']
+name='X-GNOME-Shell-System.directory'
+translate=true
+
+[desktop/app-folders/folders/Utilities]
+apps=['org.gnome.Decibels.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Papers.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Loupe.desktop']
+name='X-GNOME-Shell-Utilities.directory'
+translate=true
+
+[desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/omicron/.config/variety/wallpaper/wallpaper-auto-rotated-a8b714d74bc31bfea52b01df5b81cd4d.jpg'
+picture-uri-dark='file:///home/omicron/.config/variety/wallpaper/wallpaper-auto-rotated-a8b714d74bc31bfea52b01df5b81cd4d.jpg'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[desktop/break-reminders/eyesight]
+play-sound=true
+
+[desktop/break-reminders/movement]
+duration-seconds=uint32 300
+interval-seconds=uint32 1800
+play-sound=true
+
+[desktop/input-sources]
+current=uint32 0
+sources=[('xkb', 'us')]
+
+[desktop/interface]
+color-scheme='prefer-dark'
+enable-animations=true
+toolkit-accessibility=false
+
+[desktop/notifications]
+application-children=['org-gnome-software', 'org-gnome-ptyxis', 'gnome-power-panel', 'gnome-about-panel', 'org-mozilla-firefox', 'code', 'brave-browser', 'steam', 'variety', 'discord']
+
+[desktop/notifications/application/brave-browser]
+application-id='brave-browser.desktop'
+
+[desktop/notifications/application/code]
+application-id='code.desktop'
+
+[desktop/notifications/application/discord]
+application-id='discord.desktop'
+
+[desktop/notifications/application/gnome-about-panel]
+application-id='gnome-about-panel.desktop'
+
+[desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[desktop/notifications/application/org-gnome-ptyxis]
+application-id='org.gnome.Ptyxis.desktop'
+
+[desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[desktop/notifications/application/org-mozilla-firefox]
+application-id='org.mozilla.firefox.desktop'
+
+[desktop/notifications/application/steam]
+application-id='steam.desktop'
+
+[desktop/notifications/application/variety]
+application-id='variety.desktop'
+
+[desktop/peripherals/keyboard]
+numlock-state=true
+
+[desktop/peripherals/mouse]
+speed=0.057268722466960353
+
+[desktop/peripherals/touchpad]
+two-finger-scrolling-enabled=true
+
+[desktop/privacy]
+report-technical-problems=true
+
+[desktop/screen-time-limits]
+daily-limit-seconds=uint32 28800
+
+[desktop/screensaver]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/omicron/.local/share/backgrounds/2026-06-27-14-00-24-wallhaven-vgv658.jpg'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[desktop/search-providers]
+sort-order=['org.gnome.Settings.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Nautilus.desktop']
+
+[desktop/session]
+idle-delay=uint32 900
+
+[login-screen]
+enable-fingerprint-authentication=true
+enable-smartcard-authentication=false
+enable-switchable-authentication=false
+
+[mutter]
+workspaces-only-on-primary=false
+
+[nautilus/icon-view]
+default-zoom-level='small'
+
+[nautilus/preferences]
+migrated-gtk-settings=true
+
+[nautilus/window-state]
+initial-size=(890, 550)
+initial-size-file-chooser=(890, 550)
+maximized=true
+
+[papers]
+night-mode=false
+
+[papers/default]
+annot-color='yellow'
+continuous=true
+dual-page=false
+dual-page-odd-left=false
+enable-spellchecking=true
+show-sidebar=true
+sidebar-page='links'
+sizing-mode='free'
+window-height=1080
+window-maximized=true
+zoom=0.47161515068990578
+
+[portal/filechooser/ai.opencode.desktop]
+last-folder-path='/home/omicron/Documentos/trabajo_profemartin'
+
+[portal/filechooser/code]
+last-folder-path='/home/omicron/Documentos/bot'
+
+[portal/filechooser/md.obsidian.Obsidian]
+last-folder-path='/home/omicron/waypaper-brain'
+
+[portal/filechooser/org.gnome.Settings]
+last-folder-path='/home/omicron/Imágenes'
+
+[settings-daemon/plugins/color]
+night-light-enabled=false
+night-light-last-coordinates=(8.9994338064320996, -73.975800000000007)
+night-light-temperature=uint32 3700
+
+[settings-daemon/plugins/housekeeping]
+donation-reminder-last-shown=int64 1782428980222045
+
+[shell]
+app-picker-layout=[{'org.fedoraproject.MediaWriter.desktop': <{'position': <0>}>, 'org.gnome.Weather.desktop': <{'position': <1>}>, 'org.gnome.clocks.desktop': <{'position': <2>}>, 'org.gnome.Maps.desktop': <{'position': <3>}>, 'org.gnome.SimpleScan.desktop': <{'position': <4>}>, 'libreoffice-calc.desktop': <{'position': <5>}>, 'org.gnome.Settings.desktop': <{'position': <6>}>, 'org.gnome.Boxes.desktop': <{'position': <7>}>, 'org.gnome.Snapshot.desktop': <{'position': <8>}>, 'org.gnome.Characters.desktop': <{'position': <9>}>, 'Utilities': <{'position': <10>}>, 'System': <{'position': <11>}>, 'libreoffice-impress.desktop': <{'position': <12>}>, 'org.gnome.Tour.desktop': <{'position': <13>}>, 'org.gnome.Yelp.desktop': <{'position': <14>}>, 'libreoffice-writer.desktop': <{'position': <15>}>, 'Castle Crashers.desktop': <{'position': <16>}>, 'org.gnome.TextEditor.desktop': <{'position': <17>}>, 'org.gnome.Calculator.desktop': <{'position': <18>}>, 'org.gnome.Calendar.desktop': <{'position': <19>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <20>}>, 'htop.desktop': <{'position': <21>}>, 'org.gnome.tweaks.desktop': <{'position': <22>}>, 'Blasphemous.desktop': <{'position': <23>}>}, {'BLOODSTRIKE.desktop': <{'position': <0>}>, 'org.darktable.darktable.desktop': <{'position': <1>}>, 'discord.desktop': <{'position': <2>}>, 'Drift86.desktop': <{'position': <3>}>, 'Dying Light.desktop': <{'position': <4>}>, 'Middle-earth Shadow of Mordor.desktop': <{'position': <5>}>, 'mpv.desktop': <{'position': <6>}>, "No Man's Sky.desktop": <{'position': <7>}>, 'md.obsidian.Obsidian.desktop': <{'position': <8>}>, 'ai.opencode.desktop.desktop': <{'position': <9>}>, 'STALZONE.desktop': <{'position': <10>}>, 'variety.desktop': <{'position': <11>}>, 'Warhammer 40,000 Space Marine - Anniversary Edition.desktop': <{'position': <12>}>, 'waypaper.desktop': <{'position': <13>}>}]
+enabled-extensions=['background-logo@fedorahosted.org', 'blur-my-shell@aunetx', 'just-perfection-desktop@just-perfection']
+favorite-apps=['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'org.gnome.Software.desktop', 'code.desktop', 'brave-browser.desktop', 'steam.desktop']
+last-selected-power-profile='performance'
+welcome-dialog-last-shown-version='50.0'
+
+[shell/extensions/blur-my-shell]
+rounded-blur-found=false
+settings-version=2
+
+[shell/extensions/blur-my-shell/appfolder]
+brightness=0.59999999999999998
+sigma=30
+
+[shell/extensions/blur-my-shell/applications]
+pipeline='pipeline_default'
+
+[shell/extensions/blur-my-shell/coverflow-alt-tab]
+pipeline='pipeline_default'
+
+[shell/extensions/blur-my-shell/dash-to-dock]
+blur=true
+brightness=0.59999999999999998
+pipeline='pipeline_default_rounded'
+sigma=30
+static-blur=true
+style-dash-to-dock=0
+
+[shell/extensions/blur-my-shell/lockscreen]
+pipeline='pipeline_default'
+
+[shell/extensions/blur-my-shell/overview]
+pipeline='pipeline_default'
+
+[shell/extensions/blur-my-shell/panel]
+brightness=0.59999999999999998
+corner-radius=0
+pipeline='pipeline_default'
+sigma=30
+
+[shell/extensions/blur-my-shell/screenshot]
+pipeline='pipeline_default'
+
+[shell/extensions/blur-my-shell/window-list]
+brightness=0.59999999999999998
+sigma=30
+
+[shell/extensions/just-perfection]
+accent-color-icon=false
+accessibility-menu=false
+background-menu=true
+controls-manager-spacing-size=0
+dash=true
+dash-icon-size=32
+double-super-to-appgrid=true
+osd=true
+panel=false
+panel-icon-size=12
+panel-in-overview=true
+ripple-box=false
+search=false
+show-apps-button=false
+startup-status=0
+support-notifier-type=0
+theme=true
+window-demands-attention-focus=true
+window-picker-icon=false
+window-preview-caption=true
+window-preview-close-button=true
+workspace=false
+workspace-background-corner-size=0
+workspace-popup=true
+workspaces-in-app-grid=false
+
+[shell/world-clocks]
+locations=@av []
+
+[software]
+check-timestamp=int64 1785168113
+first-run=false
+flatpak-purge-timestamp=int64 1784869889
+install-timestamp=int64 1784231527
+packagekit-historical-updates-timestamp=uint64 1784231527
+security-timestamp=int64 1785168114171001
+update-notification-timestamp=int64 1785168157
+
+[system/location]
+enabled=true
+
+[tweaks]
+show-extensions-notice=false

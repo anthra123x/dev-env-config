@@ -1,0 +1,14 @@
+{
+    "tabnine.experimentalAutoImports": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.productIconTheme": "material-product-icons",
+    "glassit.alpha": 220,
+    "workbench.editor.empty.hint": "hidden",
+    "git.openRepositoryInParentFolders": "never",
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+    "workbench.sideBar.location": "right",
+    "explorer.confirmDragAndDrop": false,
+    "liveServer.settings.donotVerifyTags": true,
+    "files.autoSave": "afterDelay"
+}

@@ -1,0 +1,6 @@
+[Unit]
+Description=Auto-disable Bluetooth after 15 min of inactivity
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'if [ "$(bluetoothctl devices Connected 2>/dev/null | wc -l)" = "0" ]; then rfkill block bluetooth; fi'

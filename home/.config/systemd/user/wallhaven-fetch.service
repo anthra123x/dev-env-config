@@ -1,0 +1,8 @@
+[Unit]
+Description=Download random wallpapers from Wallhaven
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/wallhaven-fetch-randoms

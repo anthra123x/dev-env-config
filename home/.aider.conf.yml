@@ -1,0 +1,6 @@
+model: openai/qwen2.5-coder-3b
+openai-api-base: http://localhost:1234/v1
+openai-api-key: not-needed
+auto-commits: true
+lint: true
+show-diffs: true

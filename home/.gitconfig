@@ -1,0 +1,38 @@
+[user]
+	name = omicron
+	email = omicron@usern.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[core]
+	editor = code --wait
+	autocrlf = input
+	eol = lf
+[diff]
+	algorithm = patience
+[fetch]
+	prune = true
+[merge]
+	conflictstyle = zdiff3
+[push]
+	autoSetupRemote = true
+	followTags = true
+[rebase]
+	autostash = true
+	autosquash = true
+[status]
+	short = true
+[branch]
+	sort = -committerdate
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
