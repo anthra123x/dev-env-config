@@ -1,0 +1,110 @@
+#!/bin/bash
+# performance-profile: Balancing energético para i3-N305
+# Uso: performance-profile {balanced|gaming|status}
+
+if [ "$EUID" -ne 0 ]; then
+  exec sudo "$0" "$@"
+fi
+
+CARD="card1"
+MODE="${1:-balanced}"
+
+unlock_cpu() {
+  for cpu in /sys/devices/system/cpu/cpu[0-7]; do
+    max=$(cat $cpu/cpufreq/cpuinfo_max_freq 2>/dev/null)
+    echo $max > $cpu/cpufreq/scaling_max_freq 2>/dev/null
+  done
+}
+
+set_cpu_balanced() {
+  unlock_cpu
+  for cpu in /sys/devices/system/cpu/cpu[0-7]; do
+    echo powersave > $cpu/cpufreq/scaling_governor
+    echo 3200000 > $cpu/cpufreq/scaling_max_freq
+  done
+}
+
+set_cpu_gaming() {
+  unlock_cpu
+  for cpu in /sys/devices/system/cpu/cpu[0-7]; do
+    echo performance > $cpu/cpufreq/scaling_governor
+    echo 2800000 > $cpu/cpufreq/scaling_max_freq
+  done
+}
+
+set_gpu_balanced() {
+  echo 200 > /sys/class/drm/$CARD/gt_min_freq_mhz
+  echo 1250 > /sys/class/drm/$CARD/gt_max_freq_mhz
+  echo 1250 > /sys/class/drm/$CARD/gt_boost_freq_mhz
+}
+
+set_gpu_gaming() {
+  echo 600 > /sys/class/drm/$CARD/gt_min_freq_mhz
+  echo 1250 > /sys/class/drm/$CARD/gt_max_freq_mhz
+  echo 1250 > /sys/class/drm/$CARD/gt_boost_freq_mhz
+}
+
+set_rapl_balanced() {
+  echo 15000000 > /sys/class/powercap/intel-rapl-mmio:0/constraint_0_power_limit_uw 2>/dev/null
+  echo 25000000 > /sys/class/powercap/intel-rapl-mmio:0/constraint_1_power_limit_uw 2>/dev/null
+  echo 32000 > /sys/class/powercap/intel-rapl-mmio:0/constraint_1_time_window_us 2>/dev/null
+  echo 15000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw 2>/dev/null
+  echo 25000000 > /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw 2>/dev/null
+  echo 32000 > /sys/class/powercap/intel-rapl:0/constraint_1_time_window_us 2>/dev/null
+}
+
+set_rapl_gaming() {
+  echo 15000000 > /sys/class/powercap/intel-rapl-mmio:0/constraint_0_power_limit_uw 2>/dev/null
+  echo 35000000 > /sys/class/powercap/intel-rapl-mmio:0/constraint_1_power_limit_uw 2>/dev/null
+  echo 100000 > /sys/class/powercap/intel-rapl-mmio:0/constraint_1_time_window_us 2>/dev/null
+  echo 15000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw 2>/dev/null
+  echo 35000000 > /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw 2>/dev/null
+  echo 100000 > /sys/class/powercap/intel-rapl:0/constraint_1_time_window_us 2>/dev/null
+}
+
+show_status() {
+  echo "CPU:"
+  echo "  governor: $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)"
+  echo "  max_freq: $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq)"
+  echo "  cur_freq: $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq)"
+  echo ""
+  echo "GPU:"
+  echo "  min: $(cat /sys/class/drm/$CARD/gt_min_freq_mhz) MHz"
+  echo "  max: $(cat /sys/class/drm/$CARD/gt_max_freq_mhz) MHz"
+  echo "  cur: $(cat /sys/class/drm/$CARD/gt_cur_freq_mhz) MHz"
+  echo ""
+  echo "RAPL:"
+  echo "  MMIO PL1: $(cat /sys/class/powercap/intel-rapl-mmio:0/constraint_0_power_limit_uw 2>/dev/null) uW"
+  echo "  MMIO PL2: $(cat /sys/class/powercap/intel-rapl-mmio:0/constraint_1_power_limit_uw 2>/dev/null) uW"
+  echo "  MSR PL1:  $(cat /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw 2>/dev/null) uW"
+  echo ""
+  echo "GPU Debug:"
+  cat /sys/kernel/debug/dri/0000:00:02.0/gt0/frequency 2>/dev/null || echo "  (requires root)"
+}
+
+case "$MODE" in
+  balanced)
+    set_cpu_balanced
+    set_gpu_balanced
+    set_rapl_balanced
+    echo "Profile: balanced (uso diario)"
+    echo "  CPU: powersave, max 3.2 GHz"
+    echo "  GPU: SLPC auto (200-1250 MHz)"
+    echo "  PL1: 15W | PL2: 25W (32ms)"
+    ;;
+  gaming)
+    set_cpu_gaming
+    set_gpu_gaming
+    set_rapl_gaming
+    echo "Profile: gaming"
+    echo "  CPU: performance, max 2.8 GHz"
+    echo "  GPU: min 600 MHz, max 1250 MHz"
+    echo "  PL1: 15W | PL2: 35W (100ms)"
+    ;;
+  status)
+    show_status
+    ;;
+  *)
+    echo "Uso: $0 {balanced|gaming|status}"
+    ;;
+esac

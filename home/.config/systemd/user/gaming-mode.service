@@ -1,10 +1,9 @@
 [Unit]
 Description=Game Detection and Gaming Mode Auto-Switch
-After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=%h/projects/dev-env-config/scripts/game-detection.sh
+ExecStart=%h/dev-env-config/scripts/game-detection.sh
 Restart=always
 RestartSec=5
 Nice=-20

@@ -1,0 +1,1 @@
+KERNEL=="card[0-9]*", SUBSYSTEM=="drm", ATTRS{device/vendor}=="0x8086", RUN+="/bin/chmod 660 /sys/class/drm/%k/gt_max_freq_mhz /sys/class/drm/%k/gt_min_freq_mhz /sys/class/drm/%k/gt_boost_freq_mhz"

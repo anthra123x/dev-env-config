@@ -1,0 +1,1 @@
+ACTION=="add", KERNEL=="card1", SUBSYSTEM=="drm", ATTR{gt_min_freq_mhz}="600", ATTR{gt_max_freq_mhz}="1050"

@@ -1,0 +1,1 @@
+SUBSYSTEM=="nvme", ATTR{queue/read_ahead_kb}="8192"

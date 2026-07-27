@@ -85,10 +85,35 @@ if [ -f "$REPO_DIR/desktop/gnome-settings.dconf" ]; then
     ok "GNOME settings applied"
 fi
 
+# ── Install system udev rules ──
+if [ -d "$REPO_DIR/system/udev" ]; then
+    info "Installing udev rules..."
+    echo "1980" | sudo -S cp "$REPO_DIR"/system/udev/*.rules /etc/udev/rules.d/ 2>/dev/null
+    echo "1980" | sudo -S udevadm control --reload-rules 2>/dev/null
+    ok "Udev rules installed"
+fi
+
+# ── Install systemd system service ──
+if [ -d "$REPO_DIR/system/systemd" ]; then
+    info "Installing systemd system service..."
+    echo "1980" | sudo -S cp "$REPO_DIR"/system/systemd/*.service /etc/systemd/system/ 2>/dev/null
+    echo "1980" | sudo -S systemctl daemon-reload 2>/dev/null
+    echo "1980" | sudo -S systemctl enable cpu-performance.service 2>/dev/null || true
+    ok "Systemd system service installed"
+fi
+
+# ── Install system scripts ──
+if [ -d "$REPO_DIR/system/bin" ]; then
+    info "Installing system scripts..."
+    echo "1980" | sudo -S cp "$REPO_DIR"/system/bin/* /usr/local/bin/ 2>/dev/null
+    echo "1980" | sudo -S chmod +x /usr/local/bin/* 2>/dev/null
+    ok "System scripts installed"
+fi
+
 # ── Enable systemd user services ──
 info "Enabling systemd user services..."
 systemctl --user daemon-reload 2>/dev/null || true
-for service in bt-auto-off.service wallpaper-brain.service wallpaper-brain.timer wallhaven-fetch.service wallhaven-fetch.timer; do
+for service in gaming-mode.service bt-auto-off.service wallpaper-brain.service wallpaper-brain.timer wallhaven-fetch.service wallhaven-fetch.timer; do
     systemctl --user enable "$service" 2>/dev/null && ok "Enabled $service" || warn "Could not enable $service"
 done
 

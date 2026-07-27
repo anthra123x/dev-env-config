@@ -1,0 +1,15 @@
+[Unit]
+Description=Set CPU governor and GPU frequency to performance
+DefaultDependencies=no
+After=systemd-sysctl.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c "for cpu in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo performance > \$cpu; done"
+ExecStart=/usr/bin/sh -c "echo 600 > /sys/class/drm/card1/gt_min_freq_mhz"
+ExecStart=/usr/bin/sh -c "echo 1050 > /sys/class/drm/card1/gt_max_freq_mhz"
+ExecStart=/usr/bin/sh -c "echo 1050 > /sys/class/drm/card1/gt_boost_freq_mhz"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
